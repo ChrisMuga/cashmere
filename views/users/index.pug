@@ -1,0 +1,17 @@
+extends ../layouts/users/skeleton
+
+block content
+  div( class = "row d-flex justify-content-center mid-field")
+    div( class = "col-md-6" )
+      h1( class = "text-danger") #{title}
+      input( type = "text" class = "form-control" placeholder="Email Address" required)
+      input( type = "text" class = "form-control" placeholder="Password"      required)
+      div( class="row flex-row-reverse" )
+        div(class="col-md-3")
+          button( type="reset"  class="form-control btn btn-secondary") Clear
+        div(class="col-md-3")
+          button( type="submit" class="form-control btn btn-success") Enter  
+        hr
+      div( class="row flex-row-reverse" )
+          a(href="/register")
+            span( class = "badge badge-danger b0 mr-3 p-2" ) Register Here
