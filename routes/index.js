@@ -4,9 +4,7 @@ var router = express.Router();
 var userController = require('../controllers/userController')
 
 //home
-router.get('/', function(req, res, next) {
-  res.render('users/index', { title: 'Cashmere' });
-});
+router.get('/', userController.index);
 
 //register
 router.get('/register', function(req, res, next){

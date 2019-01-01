@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -11,6 +14,12 @@ var usersRouter = require('./routes/users');
 mongoose = require('mongoose');
 //mongo
 var mongoDb = require('./controllers/mongoController');
+
+//flash
+var flash = require('connect-flash');
+var session = require('express-session');
+
+
 
 var app = express();
 
@@ -24,8 +33,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//configure
+app.use(cookieParser('secret'));
+app.use(session({
+  secret: 'Nietzsche',
+  cookie: { maxAge: 60000 },
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(flash());
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
 
 //connect mongo
 mongoDb.connect();
