@@ -58,7 +58,11 @@ module.exports = {
                     }
                     else
                     {
-                        res.send(docs);
+                        data = {
+                            code: 1,
+                            data: docs
+                        }
+                        res.send(data);
                     }
                 }
             });
