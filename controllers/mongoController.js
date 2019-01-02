@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 module.exports={
     //connect
     connect: ()=>{
-        mongoose.connect(config.mongo_url,{useNewUrlParser: true})
+        mongoose.connect(config.mongo_url,{useNewUrlParser: true, useCreateIndex: true})
         .then(
             ()=>{
                 console.log('MongoDB Connected..')

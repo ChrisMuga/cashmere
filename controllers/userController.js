@@ -1,5 +1,6 @@
-mongoController = require('./mongoController')
-fx  =   require('./commonUtility')
+mongoController     =   require('./mongoController')
+fx                  =   require('./commonUtility')
+User                =   require('../models/User')
 module.exports = {
     
     //index
@@ -12,8 +13,6 @@ module.exports = {
 
     //register
     register:   (req, res, nex) => {
-
-        User = require('../models/User')
 
         //assign variables
         var user = new User({ 
@@ -33,6 +32,16 @@ module.exports = {
 
     
     },
+
+    login:  (req, res, next) => {
+        User.find(
+            { 
+                email_address: 'tom@mail.com'
+            }, 
+            function (err, docs) {
+                console.log(docs);
+            });
+    }
 
     
 }
