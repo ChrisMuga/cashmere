@@ -34,7 +34,8 @@ module.exports = {
     },
 
     login:  (req, res, next) => {
-        User.find(
+        //alt = User.find
+        User.findOne(
             { 
                 email_address: req.body.email_address
             }, 
