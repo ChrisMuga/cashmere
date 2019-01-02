@@ -20,7 +20,7 @@ module.exports = {
             first_name      : req.body.first_name,
             last_name       : req.body.last_name,
             phone_number    : req.body.phone_number,
-            email_address   : req.body.email_address,
+            email_address   : req.body.email_address.toLowerCase(),//set to lower-case (comes in handy while fetching)
             password        : req.body.password
          });
 
