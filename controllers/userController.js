@@ -36,10 +36,31 @@ module.exports = {
     login:  (req, res, next) => {
         User.find(
             { 
-                email_address: 'tom@mail.com'
+                email_address: 'travish@mail.com'
             }, 
             function (err, docs) {
-                console.log(docs);
+                if(err)
+                {
+                    res.send(err);
+                }
+                else
+                {
+                    //conditional rendering of data
+
+                    //if docs object is empty
+                    if(docs.length == 0 )
+                    {
+                        data = {
+                                    code: 0,
+                                    msg: 'no data'
+                                }
+                        res.send(data)
+                    }
+                    else
+                    {
+                        res.send(docs);
+                    }
+                }
             });
     }
 
