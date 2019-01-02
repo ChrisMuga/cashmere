@@ -36,7 +36,7 @@ module.exports = {
     login:  (req, res, next) => {
         User.find(
             { 
-                email_address: 'travish@mail.com'
+                email_address: req.body.email_address
             }, 
             function (err, docs) {
                 if(err)

@@ -14,6 +14,6 @@ router.get('/register', function(req, res, next){
 //user-register
 router.post('/register', userController.register);
 //login
-router.get('/login', userController.login);
+router.post('/login', userController.login);
 
 module.exports = router;

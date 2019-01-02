@@ -6,14 +6,15 @@ block content
       h1( class = "text-danger") #{title}
       if (data && data != '')
         div( class = "alert alert-primary b0" ) #{data}
-      input( type = "text" class = "form-control" placeholder="Email Address" required)
-      input( type = "text" class = "form-control" placeholder="Password"      required)
-      div( class="row flex-row-reverse" )
-        div(class="col-md-3")
-          button( type="reset"  class="form-control btn btn-secondary") Clear
-        div(class="col-md-3")
-          button( type="submit" class="form-control btn btn-success") Enter  
-        hr
+      form( method = "POST" action = "login")
+        input( type = "text" class = "form-control" placeholder="Email Address" name = "email_address"  required)
+        input( type = "text" class = "form-control" placeholder="Password"      name = "password"       required)
+        div( class="row flex-row-reverse" )
+          div(class="col-md-3")
+            button( type="reset"  class="form-control btn btn-secondary") Clear
+          div(class="col-md-3")
+            button( type="submit" class="form-control btn btn-success") Enter  
+          hr
       div( class="row flex-row-reverse" )
           a(href="/register")
             span( class = "badge badge-danger b0 mr-3 p-2" ) Register Here
