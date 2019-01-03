@@ -26,6 +26,10 @@ module.exports = {
 
          //save new user instance {utilizes promises}
          user.save();
+         data = {
+             msg: `${user.first_name} ${user.last_name} can now log in`,
+             email: user.email_address
+         }
          req.flash('data', `${user.first_name} ${user.last_name} can now log in`)
          res.redirect('/');
               
