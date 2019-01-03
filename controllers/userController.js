@@ -37,7 +37,7 @@ module.exports = {
         //alt = User.find
         User.findOne(
             { 
-                email_address: req.body.email_address
+                email_address: req.body.email_address.toLowerCase()
             }, 
             function (err, docs) {
                 if(err)
@@ -49,7 +49,7 @@ module.exports = {
                     //conditional rendering of data
 
                     //if docs object is empty
-                    if(docs.length == 0 )
+                    if(!docs || docs.length == 0 )
                     {
                         data = {
                                     code: 0,
